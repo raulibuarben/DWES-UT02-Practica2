@@ -2,8 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="jakarta.faces.html"
       xmlns:f="jakarta.faces.core"
-      xmlns:ui="jakarta.faces.facelets"
-      xmlns:c="jakarta.tags.core">
+      xmlns:ui="jakarta.faces.facelets">
 
 <h:head>
     <title>Pagos de los socios</title>
@@ -16,6 +15,8 @@
     <!-- Tabla de socios -->
     <h2>Lista de Socios:</h2>
     <h:dataTable value="#{helloBean.socios}" var="socio" border="1">
+
+        <!-- Datos personales -->
         <h:column>
             <f:facet name="header">Nombre</f:facet>
             #{socio.nombre}
@@ -36,6 +37,25 @@
             <f:facet name="header">Edad</f:facet>
             #{socio.edad}
         </h:column>
+
+        <!-- Pagos mensuales -->
+        <h:column>
+            <f:facet name="header">Pagos Mensuales</f:facet>
+            <ul style="list-style:none; padding-left:0;">
+                <ui:repeat value="#{socio.pagos.entrySet()}" var="pago">
+                    <li>
+                        <b>#{pago.key}:</b>
+                        <h:panelGroup rendered="#{not empty pago.value}">
+                            #{pago.value} €
+                        </h:panelGroup>
+                        <h:panelGroup rendered="#{empty pago.value}">
+                            <span style="color:red; font-weight:bold;">NO PAGADO</span>
+                        </h:panelGroup>
+                    </li>
+                </ui:repeat>
+            </ul>
+        </h:column>
+
     </h:dataTable>
 </h:body>
 </html>
