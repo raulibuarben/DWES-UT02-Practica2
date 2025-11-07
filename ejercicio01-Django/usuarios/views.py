@@ -41,9 +41,10 @@ def usuario_view(request):
     # Mostrar pagos mes a mes
     print("=== Pagos de la asociación ===")
     total_pagado = 0
-    pagos_html = ""
+    pagos = ""
     for mes, cantidad in usuario["pagos"].items():
         estado = "PAGADO" if cantidad > 0 else "PENDIENTE"
+        pagos += f"<li>{mes}: {cantidad} € -> {estado}</li>"
         print(f"{mes.capitalize():<10}: {cantidad} € -> {estado}")
         total_pagado += cantidad
 
@@ -63,7 +64,11 @@ def usuario_view(request):
             <p><strong>Email:</strong> {usuario['email']}</p>
             <p><strong>Teléfono:</strong> {usuario['telefono']}</p>
 
-
+            <h2>Pagos de la Asociación</h2>
+            
+            {pagos}
+            
+            <p><strong>Total anual pagado:</strong> {total_pagado} €</p>
         </body>
     </html>
     """
