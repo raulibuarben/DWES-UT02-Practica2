@@ -32,19 +32,29 @@ public class HelloBean implements Serializable {
         );
     }
 
-    // Clase interna para productos
-    public static class Producto {
+    // Clase interna para socios
+    // Práctica 2: Crea aquí la clase que defina a un usuario
+    public static class Socio {
         private String nombre;
-        private double precio;
+        private String apellidos;
+        private String dni;
+        private String email;
+        private int edad;
+        private Map<String, Double> pagos; // pagos por mes
 
-        public Producto(String nombre, double precio) {
+        public Socio(String nombre, String apellidos, String dni, String email, int edad, Map<String, Double> pagos) {
             this.nombre = nombre;
-            this.precio = precio;
+            this.apellidos = apellidos;
+            this.dni = dni;
+            this.email = email;
+            this.edad = edad;
+            this.pagos = pagos;
         }
 
         public String getNombre() { return nombre; }
-        public double getPrecio() { return precio; }
+        public String getApellidos() { return apellidos; }
+        public String getDni() { return dni; }
+        public String getEmail() { return email; }
+        public int getEdad() { return edad; }
+        public Map<String, Double> getPagos() { return pagos; }
     }
-// Práctica 2: Crea aquí la clase que defina a un usuario
-    
-}
