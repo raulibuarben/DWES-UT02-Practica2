@@ -99,6 +99,16 @@ public class HelloBean implements Serializable {
         public int getEdad() { return edad; }
         public Map<String, Double> getPagos() { return pagos; }
 
+        //Método para calcular el pago anual total
+        public double getTotalPagado() {
+        double total = 0.0;
+        for (Double pago : pagos.values()) {
+            if (pago != null) {
+                total += pago;
+            }
+        }
+        return total;
+    }
         
     }
 }
