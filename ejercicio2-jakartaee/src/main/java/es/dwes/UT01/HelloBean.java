@@ -37,15 +37,15 @@ public class HelloBean implements Serializable {
 
         // Socio 2
         Map<String, Double> pagos2 = new HashMap<>();
-        pagos2.put("Enero", 50.0);
-        pagos2.put("Febrero", 50.0);
-        pagos2.put("Marzo", 50.0);
+        pagos2.put("Enero", 5.0);
+        pagos2.put("Febrero", 5.0);
+        pagos2.put("Marzo", 5.0);
         pagos2.put("Abril", null);
-        pagos2.put("Mayo", 50.0);
-        pagos2.put("Junio", 50.0);
+        pagos2.put("Mayo", 5.0);
+        pagos2.put("Junio", 5.0);
         pagos2.put("Julio", null);
-        pagos2.put("Agosto", 50.0);
-        pagos2.put("Septiembre", 50.0);
+        pagos2.put("Agosto", 5.0);
+        pagos2.put("Septiembre", 5.0);
         pagos2.put("Octubre", 50.0);
         pagos2.put("Noviembre", null);
         pagos2.put("Diciembre", null);

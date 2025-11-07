@@ -61,7 +61,26 @@
             <f:facet name="header">Total Anual (€)</f:facet>
             <b>#{socio.totalPagado}</b>
         </h:column>
+        
+        <!-- Estado de los pagos -->
+         <h:column>
+        <f:facet name="header">Estado</f:facet>
 
+        <!-- Si total < 100 -->
+        <h:panelGroup rendered="#{socio.totalPagado lt 100}">
+            <span style="color:red; font-weight:bold;">
+                El usuario no está al día con la cuota
+            </span>
+        </h:panelGroup>
+
+        <!-- Si total >= 100 -->
+        <h:panelGroup rendered="#{socio.totalPagado ge 100}">
+            <span style="color:green; font-weight:bold;">
+                El usuario está al corriente de pagos
+            </span>
+        </h:panelGroup>
+    </h:column>
     </h:dataTable>
+
 </h:body>
 </html>
